@@ -2,15 +2,11 @@ package ru.project.servicevolunteer.models;
 import javax.persistence.*;
 
 import lombok.*;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.hibernate.annotations.JoinFormula;
 import org.hibernate.annotations.Table;
 import org.springframework.context.annotation.Role;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 
 @Getter

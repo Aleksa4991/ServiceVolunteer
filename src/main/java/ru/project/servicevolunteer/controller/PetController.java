@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ru.project.servicevolunteer.models.PersonalPetCard;
+import ru.project.servicevolunteer.repository.PersonalPetCardRepository;
+import ru.project.servicevolunteer.service.VolunteerActionService;
 
 import java.util.Optional;
 

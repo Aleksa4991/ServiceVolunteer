@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.annotations.Table;
+
 import org.springframework.context.annotation.Role;
 
 import lombok.AllArgsConstructor;

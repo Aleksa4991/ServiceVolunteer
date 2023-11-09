@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.project.servicevolunteer.models.Volunteer;
 import ru.project.servicevolunteer.repository.VolunteerRepository;
-
+import ru.project.servicevolunteer.entity.VolunteerActions;
 import java.util.stream.Collectors;
 
 @Service

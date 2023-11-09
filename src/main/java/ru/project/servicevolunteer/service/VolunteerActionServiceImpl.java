@@ -2,9 +2,9 @@ package ru.project.servicevolunteer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.project.servicevolunteer.models.VolunteerActions;
+import ru.project.servicevolunteer.entity.VolunteerActions;
 import ru.project.servicevolunteer.repository.VolunteerActionsRepository;
-
+import ru.project.servicevolunteer.entity.VolunteerActions;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 

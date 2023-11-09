@@ -1,5 +1,5 @@
 package ru.project.servicevolunteer.service;
-
+import ru.project.servicevolunteer.entity.VolunteerActions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -59,10 +59,9 @@ public class VolunteerServiceImpl implements VolunteerService {
         return volunteerDto;
     }
 
-    private Role checkRoleExist() {
+    private Role checkRoleExist()	{
         Role role = new Role();
         role.setName("ROLE_ADMIN");
-        S save = roleRepository.save(role);
-        return save;
+        return roleRepository.save(role);
     }
 }

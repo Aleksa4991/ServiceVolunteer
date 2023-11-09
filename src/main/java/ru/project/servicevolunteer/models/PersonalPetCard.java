@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 import lombok.*;
 import java.util.Date;
-import org.hibernate.annotations.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 

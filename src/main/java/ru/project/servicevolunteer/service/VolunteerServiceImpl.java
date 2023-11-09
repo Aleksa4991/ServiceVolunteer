@@ -44,7 +44,7 @@ public class VolunteerServiceImpl implements  VolunteerService {
     @Override
 
     public Volunteer findVolunteerByEmail(String email) {
-        return volunteerRepository.findByEmail(email);
+        return volunteerRepository.findByEmail();
     }
 
     @Override

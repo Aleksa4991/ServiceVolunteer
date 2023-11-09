@@ -6,5 +6,5 @@ import ru.project.servicevolunteer.models.Volunteer;
 
 @Repository
 public interface VolunteerRepository extends JpaRepository<Volunteer,Long> {
-    Volunteer findByEmail(String email);
+    Volunteer findByEmail();
         }

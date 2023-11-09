@@ -20,6 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="PETS")
 //класс представляет личную карточку животного
 public class PersonalPetCard {
+    @javax.persistence.Id
     @Id
     @Column(name="Id", nullable=false)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -58,4 +59,6 @@ public class PersonalPetCard {
 
     @Column(name="EnelosureNum",nullable=false)
     private int enelosureNum;
+
+
 }

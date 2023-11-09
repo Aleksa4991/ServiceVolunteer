@@ -11,6 +11,7 @@ import ru.project.servicevolunteer.models.Volunteer;
 import ru.project.servicevolunteer.service.VolunteerService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class SecurityController	{
@@ -47,13 +48,13 @@ public class SecurityController	{
             model.addAttribute("volunteer", volunteerDto);
             return "/register";
         }
-        volunteerService.saveVolunteer(volonteerDto);
+        volunteerService.saveVolunteer(volunteerDto);
         return "redirect:/register?success";
     }
 
     @GetMapping("/volonteers")
     public String volunteers(Model model)	{
-        List<VolonteerDto> volunteers = volunteerService.findAllVolunteers();
+        List<VolunteerDto> volunteers = volunteerService.findAllVolunteers();
         model.addAttribute("volunteers", volunteers);
         return "volunteer";
     }

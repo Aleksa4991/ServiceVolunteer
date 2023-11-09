@@ -1,12 +1,15 @@
 package ru.project.servicevolunteer.models;
 import javax.persistence.*;
 
-import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.annotations.Table;
 import org.springframework.context.annotation.Role;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Getter

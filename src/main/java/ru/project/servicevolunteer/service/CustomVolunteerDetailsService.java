@@ -19,7 +19,7 @@ public class CustomVolunteerDetailsService  implements UserDetailsService {
     public UserDetails loadUserByUsername(String usernameOrEmail) throws
             UsernameNotFoundException{
         Volunteer volunteer= (Volunteer) volunteerRepository;
-        volunteerRepository.findByEmail();
+        volunteerRepository.findByEmail(email);
     if(volunteer !=null) {
         return
         Volunteer(volunteer.getEmail(), Volunteer.getPassword(), volunteer.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.annotationType().getName())).collect(Collectors.toList()));

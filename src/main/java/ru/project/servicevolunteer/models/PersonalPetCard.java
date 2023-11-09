@@ -1,14 +1,9 @@
 package ru.project.servicevolunteer.models;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 import lombok.*;
 import java.util.Date;
 import org.hibernate.annotations.Table;
-import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -20,10 +15,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="PETS")
 //класс представляет личную карточку животного
 public class PersonalPetCard {
-    @javax.persistence.Id
     @Id
-    @Column(name="Id", nullable=false)
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="Nickname",nullable=false)
@@ -50,15 +43,5 @@ public class PersonalPetCard {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name="DateOfAdmission")
     private Date dateOfAdmission;
-
-    @Column(name="RFIDChip",nullable=false, unique = true)
-    private String rfidChip;
-
-    @Column(name="ShelterRegNum",nullable=false, unique = true)
-    private String shelterRegNum;
-
-    @Column(name="EnelosureNum",nullable=false)
-    private int enelosureNum;
-
 
 }

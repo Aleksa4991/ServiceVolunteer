@@ -1,4 +1,4 @@
-package ru.project.servicevolunteer.entity;
+package ru.project.servicevolunteer.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,22 +7,18 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name="VOLUNTEER_ACTIONS")
-public class VolunteerActions {
+@Table(name = "VOLUNTEER_ACTIONS")
+public class VolunteerAction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name ="Date")
+    private long id;
+    @Column(name = "data")
     private String date;
-
-    @Column(name ="action")
+    @Column(name = "action")
     private String action;
-
 }

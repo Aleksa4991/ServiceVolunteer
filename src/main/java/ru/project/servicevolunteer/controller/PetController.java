@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import ru.project.servicevolunteer.models.PersonalPetCard;
-import ru.project.servicevolunteer.repository.PersonalPetCardRepository;
+import ru.project.servicevolunteer.models.Pet;
+import ru.project.servicevolunteer.repository.PetRepository;
 import ru.project.servicevolunteer.service.VolunteerActionService;
 
 import java.util.Optional;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @Controller
 public class PetController {
     @Autowired
-    private PersonalPetCardRepository personalPetCardRepository;
+    private PetRepository petRepository;
     @Autowired
     private VolunteerActionService volunteerActionService;
 
@@ -26,7 +26,7 @@ public class PetController {
     public ModelAndView getAllPets()	{
         log.info("/list -> connection");
         ModelAndView mav = new ModelAndView("list-pets");
-        mav.addObject("pets", personalPetCardRepository.findAll());
+        mav.addObject("pets", petRepository.findAll());
         volunteerActionService.savelog("Volunteer get all pets");
         return mav;
     }
@@ -34,35 +34,35 @@ public class PetController {
     @GetMapping("/addPetForm")
     public ModelAndView addPetForm()	{
         ModelAndView mav = new ModelAndView("add-pet-form");
-        PersonalPetCard personalPetCard = new PersonalPetCard();
-        mav.addObject("pet", personalPetCard);
+        Pet pet = new Pet();
+        mav.addObject("pet", pet);
         volunteerActionService.savelog("Volunteer add pet");
         return mav;
     }
 
     @PostMapping("/savePet")
-    public String savePet(@ModelAttribute PersonalPetCard personalPetCard)	{
-        personalPetCardRepository.save(personalPetCard);
+    public String savePet(@ModelAttribute Pet pet)	{
+        petRepository.save(pet);
         volunteerActionService.savelog("Volunteer save pet");
         return "redirect:/list";
     }
 
     @GetMapping("/showUpdateForm")
-    public ModelAndView showUpdateForm(@RequestParam Long personalPetCardId)	{
+    public ModelAndView showUpdateForm(@RequestParam Long petId)	{
         ModelAndView mav = new ModelAndView("add-pet-form");
-        Optional<PersonalPetCard> optionalPersonalPetCard = personalPetCardRepository.findById(personalPetCardId);
-        PersonalPetCard personalPetCard = new PersonalPetCard();
-        if(optionalPersonalPetCard.isPresent())	{
-            personalPetCard = optionalPersonalPetCard.get();
+        Optional<Pet> optionalPet = petRepository.findById(petId);
+        Pet pet = new Pet();
+        if(optionalPet.isPresent())	{
+            pet = optionalPet.get();
         }
-        mav.addObject("pet", personalPetCard);
+        mav.addObject("pet", pet);
         volunteerActionService.savelog("Volunteer show update form");
         return mav;
     }
 
     @GetMapping("/deletePet")
-    public String deletePet(@RequestParam Long personalPetCardId)	{
-        personalPetCardRepository.deleteById(personalPetCardId);
+    public String deletePet(@RequestParam Long petId)	{
+        petRepository.deleteById(petId);
         volunteerActionService.savelog("Volunteer delete pet");
         return "redirect:/list";
     }

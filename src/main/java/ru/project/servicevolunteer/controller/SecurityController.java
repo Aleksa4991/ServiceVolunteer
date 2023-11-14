@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class SecurityController	{
+public class SecurityController {
     private VolunteerService volunteerService;
 
     public SecurityController(VolunteerService volunteerService)	{

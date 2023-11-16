@@ -21,11 +21,14 @@ public class MedCard {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "Status", nullable = false)
+    private String status;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "Sterilization")
     private Date sterilization;
 
-    @Column(name = "VetClinicAddress", nullable = false)
+    @Column(name = "VetClinicAddress")
     private String vetClinicAddress;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

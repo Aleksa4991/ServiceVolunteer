@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VOLUNTEER ASSISTANT SERVICE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/index}">VOLUNTEER ASSISTANT SERVICE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                       th:href="@{/register}">Register</a>
+                </li>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <hr/>
+    <h3>NEW PET</h3>
+    <hr/>
+    <form th:action="@{/savePet}" th:object="${pet}" method="POST">
+        <div>
+            <input type="text" th:field="*{nickname}" class="form-control col-4 mb-4" placeholder="Enter Nickname"/>
+            <input type="text" th:field="*{category}" class="form-control col-4 mb-4" placeholder="Enter Category"/>
+            <input type="text" th:field="*{gender}" class="form-control col-4 mb-4" placeholder="Enter Gender"/>
+            <input type="text" th:field="*{breed}" class="form-control col-4 mb-4" placeholder="Enter Breed"/>
+            <input type="text" th:field="*{color}" class="form-control col-4 mb-4" placeholder="Enter Color"/>
+            <input type="text" th:field="*{size}" class="form-control col-4 mb-4" placeholder="Enter Size"/>
+            <input type="text" th:field="*{approximateAge}" class="form-control col-4 mb-4" placeholder="Enter Approximate Age"/>
+            <input type="date" th:field="*{dateOfAdmission}" class="form-control col-4 mb-4" placeholder="Enter date Of Admission"/>
+            <input type="text" th:field="*{rtidChip}" class="form-control col-4 mb-4" placeholder="Enter Registration ID or Chip"/>
+            <input type="text" th:field="*{shelterRegNum}" class="form-control col-4 mb-4" placeholder="Enter Registration Number At The Shelter"/>
+            <input type="text" th:field="*{enclosureNum}" class="form-control col-4 mb-4" placeholder="Enter Enclosure number"/>
+        </div>
+        <form th:action="@{/saveMedCard}" th:object="${medCard}" method="POST">
+            <div>
+                <p> Required field. If the animal appeared recently,
+                    then write "newcomer" in the status field.
+                    Latter indicate the status "resident"
+                </p>
+                <input type="date" th:field="*{status}" class="form-control col-4 mb-4" placeholder="Enter Status"/>
+                <input type="date" th:field="*{sterilization}" class="form-control col-4 mb-4" placeholder="Enter Sterilization Date"/>
+                <input type="text" th:field="*{vetClinicAddress}" class="form-control col-4 mb-4" placeholder="Enter The Address Of The Veterinary Clinic"/>
+                <input type="date" th:field="*{fleaTreatment}" class="form-control col-4 mb-4" placeholder="Enter Flea Treatment Date"/>
+                <input type="date" th:field="*{deworming}" class="form-control col-4 mb-4" placeholder="Enter Deworming Date"/>
+                <input type="text" th:field="*{necessaryMedications}" class="form-control col-4 mb-4" placeholder="Enter Neccessary Medications"/>
+            </div>
+            <p> First save the pet's medical card</p>
+            <button type="submit" class="btn btn-primary col-2">Save medical card</button>
+            <input type="hidden" th:field="*{id}"/>
+        </form>
+        <p>Now save the animal recording</p>
+        <button type="submit" class="btn btn-primary col-2">Save</button>
+        <input type="hidden" th:field="*{id}"/>
+
+    </form>
+    <hr/>
+    <a th:href="@{/list}">Back to list</a>
+</div>
+
+</body>
+</html>

@@ -26,7 +26,6 @@
                     <a class="nav-link active" aria-current="page"
                        th:href="@{/register}">Register</a>
                 </li>
-            </ul>
         </div>
     </div>
 </nav>
@@ -34,7 +33,7 @@
     <hr/>
     <h3>NEW PET</h3>
     <hr/>
-    <form th:action="@{/followToTheMedCard}" th:object="${pet}" method="POST">
+    <form th:action="@{/updatePet}" th:object="${pet}" method="POST">
         <div>
             <input type="text" th:field="*{nickname}" class="form-control col-4 mb-4" placeholder="Enter Nickname"/>
             <input type="text" th:field="*{category}" class="form-control col-4 mb-4" placeholder="Enter Category"/>
@@ -48,8 +47,7 @@
             <input type="text" th:field="*{shelterRegNum}" class="form-control col-4 mb-4" placeholder="Enter Registration Number At The Shelter"/>
             <input type="text" th:field="*{enclosureNum}" class="form-control col-4 mb-4" placeholder="Enter Enclosure number"/>
         </div>
-        <p>To save pet, add its medical card</p>
-        <button type="submit" class="btn btn-primary col-2">Add a medical card</button>
+        <button type="submit" class="btn btn-primary col-2">Update pet card</button>
         <input type="hidden" th:field="*{id}"/>
     </form>
 

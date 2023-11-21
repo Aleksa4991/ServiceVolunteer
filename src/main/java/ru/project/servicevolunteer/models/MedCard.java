@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "MEDICAL_RECORDS")
+@Table(name = "MEDCARDS")
 
 public class MedCard {
     @Id

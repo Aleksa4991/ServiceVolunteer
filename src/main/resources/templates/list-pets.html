@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>VOLUNTEER ASSISTANT SERVICE</title>
@@ -21,37 +20,42 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+          </li>
+      </ul>
     </div>
   </div>
 </nav>
 <div class="container">
 
   <hr/>
-  <a th:href="@{/addPetForm}" class="btn btn-primary">Add Pet</a>
+  <a th:href="@{/addPetForm}" class="btn btn-primary">Создать питомца</a>
   <br/><br/>
   <table class="table table-bordered table-striped" id="petTable">
 
-    <thead>
-    <tr>
-      <th>Nickname</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="pet: ${pets}">
-      <td th:text="${pet.nickname}" />
-      <td>
-        <a th:href="@{/showUpdateForm(petId=${pet.id})}" class="btn btninfo">Update</a>
+      <thead>
+      <tr>
+          <th>Nickname</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="pet: ${pets}">
+          <td th:text="${pet.nickname}" />
+          <td>
+              <a th:href="@{/showUpdateForm(petId=${pet.id})}" class="btn btn-primary">Изменить карточку питомца</a>
 
-        <a th:href="@{/deletePet(petId=${pet.id})}" class="btn btn-danger ml2">Delete</a>
-      </td>
-    </tr>
-    </tbody>
+              <a th:each="medcard: ${medcards}">
+                  <a th:href="@{/showUpdateMedCard(medCardId=${medcard.id})}" class="btn btn-primary">Изменить медкарту питомца</a>
+              </a>
+
+              <a th:href="@{/deletePet(petId=${pet.id})}" class="btn btn-danger ml2">Удалить запись</a>
+          </td>
+      </tr>
+      </tbody>
 
   </table>
 </div>
@@ -69,3 +73,4 @@
   })
 </script>
 </body></html>
+

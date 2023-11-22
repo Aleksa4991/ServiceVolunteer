@@ -26,7 +26,7 @@ public class PetController {
     private VolunteerActionService volunteerActionService;
 
     @GetMapping("/list")
-    public ModelAndView getAllPets()	{
+    public ModelAndView getAllPets() {
         log.info("/list -> connection");
         ModelAndView mav = new ModelAndView("list-pets");
         mav.addObject("pets", petRepository.findAll());

@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Виртуальный помощник волонтера</title>
+        <title> Виртуальный помощник волонтера </title>
         <link   href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-                    rel="stylesheet"
+                rel="stylesheet"
                 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
                 crossorigin="anonymous">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" th:href="@{/index}">ВИРТУАЛЬНЫЙ ПОМОЩНИК ВОЛОНТЕРА</a>
+                <a class="navbar-brand" th:href="@{/index}"> ВИРТУАЛЬНЫЙ ПОМОЩНИК ВОЛОНТЕРА </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon">
@@ -20,10 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" th:href="@{/login}">Вход</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" th:href="@{/register}">Регистрация</a>
+                            <a class="nav-link active" aria-current="page" th:href="@{/logout}"> Выход </a>
                         </li>
                     </ul>
                 </div>
@@ -33,9 +30,12 @@
             <hr/>
                 <h3>МЕДИЦИНСКАЯ КАРТА ПИТОМЦА</h3>
             <hr/>
-            <form th:action="@{/saveMedCard}" th:object="${medCard}" method="POST">
+            <form
+                    method="post"
+                    th:action="@{/saveMedCard}"
+                    th:object="${medCard}">
                 <div>   Обязательное поле. Если животное прибыло недавно, напишите "новичок" в поле статуса.
-                        В дальнейшем укажите статус обитатель.
+                        В дальнейшем укажите статус "обитатель".
                 </div>
                 <div>
                     <div> Укажите статус </div>

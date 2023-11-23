@@ -15,9 +15,9 @@ public class VolunteerDto {
     private Long id;
     @NotEmpty
     private String username;
-    @NotEmpty(message = "Email should not be empty")
+    @NotEmpty(message = "Поле не может быть пустым")
     @Email
     private String email;
-    @NotEmpty(message = "Password should be empty")
+    @NotEmpty(message = "Поле не может быть пустым")
     private String password;
 }

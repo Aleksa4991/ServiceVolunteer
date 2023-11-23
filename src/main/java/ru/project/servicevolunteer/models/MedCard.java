@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Getter
@@ -22,6 +23,7 @@ public class MedCard {
     private long id;
 
     @Column(name = "Status", nullable = false)
+    @NotEmpty(message = "Введите статус питомца!")
     private String status;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
